@@ -1,24 +1,82 @@
-<h1>This is the articles listing page</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>
-  <%= link_to "Create new article", new_article_path %>
-</p>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
+  <title>Beta-blog</title>
   
-  <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.description %></td>
-    <td><%= link_to "Show ", article_path(article) %></td>
-    <td> | </td>
-    <td><%= link_to "Edit ", edit_article_path(article) %></td>
-    <td> | </td>
-    <td><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
-  </tr>
-  <% end %>
-</table>
+</head>
+
+<body>
+  
+<!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">BETA BLOG</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="../articles">Blog articles</a>
+                  </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a href="/">Home</a>
+                  </li>
+                  <li>
+                      <a href="/about">About</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+  </nav>
+
+  <section>
+    <div class="container">
+      
+      <h1>Articles listing</h1>
+      
+      <p>
+        <%= link_to "Create new article", new_article_path %>
+      </p>
+      
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+        
+        <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= article.description %></td>
+          <td><%= link_to "Show ", article_path(article) %></td>
+          <td> | </td>
+          <td><%= link_to "Edit ", edit_article_path(article) %></td>
+          <td> | </td>
+          <td><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </section>
+
+</body>
